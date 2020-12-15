@@ -13,10 +13,12 @@ you = json.loads(fuck)
 
 print("")
 print("IP: " + you["query"])
-print("Country : " + you["country"])
+print("Country: " + you["country"])
 print("country code: " + you["countryCode"])
 print("region: " + you["region"])
 print("Region Name: " + you["regionName"])
+print("City: " + you["city"])
+print("zip code: " + you["zip"])
 print("ISP: " + you["isp"])
 
 
