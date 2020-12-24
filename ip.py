@@ -1,6 +1,5 @@
 #Coded by: Anikin Fuckin Luke xD
 #Coded By: Anikin Luke
-pip install requirements.txt
 
 import json, urllib2, os, sys
 
