@@ -1,12 +1,13 @@
 #!/usr/bin/python3
 #Coded By: Anikin Luke
+import os, sys
 
 try:
- import json, urllib.request, os, sys
+ import json, urllib.request
  import ip_address as pip
 except:
- pip3 install json, urllib.requests, ip_address
- import json, urllib.request, os, sys
+ os.system('pip3 install json, urllib.requests, ip_address')
+ import json, urllib.request
  import ip_address as pip
  
 print("""
