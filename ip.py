@@ -1,9 +1,14 @@
 #!/usr/bin/python3
 #Coded By: Anikin Luke
 
-import json, urllib.request, os, sys
-import ip_address as pip
-
+try:
+ import json, urllib.request, os, sys
+ import ip_address as pip
+except:
+ pip3 install json, urllib.requests, ip_address
+ import json, urllib.request, os, sys
+ import ip_address as pip
+ 
 print("""
 ██   ██    ████████ 
  ██ ██      ██    
