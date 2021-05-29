@@ -1,26 +1,40 @@
-#Coded by: Anikin Fuckin Luke xD
+#!/usr/bin/python3
 #Coded By: Anikin Luke
 
-import json, urllib2, os, sys
+import json, urllib.request, os, sys
+import ip_address as pip
 
-os.system("python3 banner/shit.py")
+print("""
+██   ██    ████████ 
+ ██ ██      ██    
+  ███  █████ ██    
+ ██ ██     ██    
+██   ██      ██    
+                  
+smart-ip-tracer
+by: Anikin Luke
+""")
+public_ip = pip.get()
+print("==================>")
+print(f"your ip: {public_ip}")
+print("==================>\n")
 
-your = raw_input("ip to trace: ")
+ui = input("ip to trace: ")
 
-ass = "http://ip-api.com/json/"
-hole = urllib2.urlopen(ass + your)
-fuck = hole.read()
-you = json.loads(fuck)
+api = "http://ip-api.com/json/"
+req = urllib.request.urlopen(api + ui)
+reader = read.read()
+conv = json.loads(reader)
 
 print("")
-print("IP: " + you["query"])
-print("Country: " + you["country"])
-print("country code: " + you["countryCode"])
-print("region: " + you["region"])
-print("Region Name: " + you["regionName"])
-print("City: " + you["city"])
-print("zip code: " + you["zip"])
-print("ISP: " + you["isp"])
+print("IP: " + conv["query"])
+print("Country: " + conv["country"])
+print("country code: " + conv["countryCode"])
+print("region: " + conv["region"])
+print("Region Name: " + conv["regionName"])
+print("City: " + conv["city"])
+print("zip code: " + conv["zip"])
+print("ISP: " + conv["isp"])
 
 
 
