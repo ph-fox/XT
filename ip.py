@@ -1,46 +1,41 @@
 #!/usr/bin/python3
-#Coded By: Anikin Luke
-import os, sys
+import json, os, sys, publicip, optparse
+import urllib.request as ul
+parser = optparse.OptionParser()
+parser.add_option('-t','--target',dest='ip',help='target ip')
+(value, key) = parser.parse_args()
+ipx = value.ip
 
-try:
- import json, urllib.request
- import ip_address as pip
-except:
- os.system('pip3 install json, urllib.requests, ip_address')
- import json, urllib.request
- import ip_address as pip
- 
-print("""
-██   ██    ████████ 
- ██ ██      ██    
-  ███  █████ ██    
- ██ ██     ██    
-██   ██      ██    
-                  
-smart-ip-tracer
-by: Anikin Luke
-""")
-public_ip = pip.get()
-print("==================>")
-print(f"your ip: {public_ip}")
-print("==================>\n")
+class Tracer:
+	def __init__(self, ip):
+		self.ip = ip
+		
 
-ui = input("ip to trace: ")
+	def trace(self):
+		#api = "http://ip-api.com/json/"
+		conv = ul.urlopen(f"http://ip-api.com/json/{self.ip}")
+		read = conv.read()
+		load = json.loads(read)
 
-api = "http://ip-api.com/json/"
-req = urllib.request.urlopen(api + ui)
-reader = read.read()
-conv = json.loads(reader)
-
-print("")
-print("IP: " + conv["query"])
-print("Country: " + conv["country"])
-print("country code: " + conv["countryCode"])
-print("region: " + conv["region"])
-print("Region Name: " + conv["regionName"])
-print("City: " + conv["city"])
-print("zip code: " + conv["zip"])
-print("ISP: " + conv["isp"])
+		print("")
+		print(f"IP: {load['query']}")
+		print(f"Country: {load['country']}")
+		print(f"country code: {load['countryCode']}")
+		print(f"region: {load['region']}")
+		print(f"Region Name: {load['regionName']}")
+		print(f"City: {load['city']}")
+		print(f"zip code: {load['zip']}")
+		print(f"ISP: {load['isp']}")
 
 
+	def check(self):
+		if self.ip is None:
+			self.ip = input("ip to trace: ")
+			ip_trace.trace()
+		else:
+			ip_trace.trace()
 
+
+if __name__=='__main__':
+	ip_trace = Tracer(ipx)
+	ip_trace.check()
