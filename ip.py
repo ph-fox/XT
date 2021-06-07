@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import json, os, sys, publicip, optparse
 import urllib.request as ul
+import ip_address as puip
 parser = optparse.OptionParser()
 parser.add_option('-t','--target',dest='ip',help='target ip')
 (value, key) = parser.parse_args()
@@ -28,11 +29,28 @@ class Tracer:
 		print(f"ISP: {load['isp']}")
 
 
+	def banner(self):
+		print(f"""
+=========================
+ __  _______             |
+ \\ \\/ /_   _|            |
+  >  <  | |              |
+ /_/\\_\\ |_|              |
+                         |
+X-Tracer By: Anikin Luke |
+-------------------------|
+Your Ip: {puip.get()}   |
+=========================
+result:""")
+
+
 	def check(self):
 		if self.ip is None:
 			self.ip = input("ip to trace: ")
+			ip_trace.banner()
 			ip_trace.trace()
 		else:
+			ip_trace.banner()
 			ip_trace.trace()
 
 
