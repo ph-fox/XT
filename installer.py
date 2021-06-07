@@ -11,6 +11,7 @@ try:
 	os.system('chmod 777 ip.py;mv ip.py trace; mv trace /usr/bin/;rm -rf ../xt')
 	os.chdir('../')
 	print('Installed Successfully!!')
-	print('You can now run "trace" command anywhere in your terminal!.')
+	print('You can now run "trace" or "trace -t {target_ip}" command anywhere in your terminal!.')
+	os.system('trace -h')
 except:
 	print('Err')
