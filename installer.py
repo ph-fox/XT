@@ -12,6 +12,6 @@ try:
 	os.chdir('../')
 	print('Installed Successfully!!')
 	print('You can now run "trace" or "trace -t {target_ip}" command anywhere in your terminal!.')
-	os.system('trace -h')
+	print('type "trace -h" to show help')
 except:
 	print('Err')
