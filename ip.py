@@ -3,13 +3,12 @@ import optparse, os
 try:
  import urllib.request as ul
  import ip_address
- import ip_address as puip
  import json
 except:
  #print('Grant Us Root To Auto Install Required Modules!.')
  os.system('pip3 install urllib.request, json, ip_address')
  import urllib.request as ul
- import ip_address as puip
+ import ip_address
  import json
 parser = optparse.OptionParser()
 parser.add_option('-t','--target',dest='ip',help='target ip')
@@ -52,7 +51,7 @@ class Tracer:
                          |
 X-Tracer By: Anikin Luke |
 -------------------------|
-Your Ip: {puip.get()}   |
+Your Ip: {ip_address.get()}   |
 =========================
 result:""")
 
