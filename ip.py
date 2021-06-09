@@ -2,14 +2,12 @@
 import optparse, os
 try:
  import urllib.request as ul
- import ip_address
- import json
-except:
+ import ip_address, json
+except ImportError or ModuleNotFound:
  #print('Grant Us Root To Auto Install Required Modules!.')
  os.system('pip3 install urllib.request, json, ip_address')
  import urllib.request as ul
- import ip_address
- import json
+ import ip_address, json
 parser = optparse.OptionParser()
 parser.add_option('-t','--target',dest='ip',help='target ip')
 (value, key) = parser.parse_args()
