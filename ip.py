@@ -3,11 +3,11 @@ import optparse, os
 try:
  import urllib.request as ul
  import ip_address, json
-except ImportError or ModuleNotFound:
+except ImportError or ModuleNotFoundError:
  #print('Grant Us Root To Auto Install Required Modules!.')
- os.system('pip3 install urllib.request, json, ip_address')
- import urllib.request as ul
- import ip_address, json
+ os.system('pip3 install ip_address')
+ os.system(f'python3 {os.path.basename(__file__)}')
+ exit(0)
 parser = optparse.OptionParser()
 parser.add_option('-t','--target',dest='ip',help='target ip')
 (value, key) = parser.parse_args()
@@ -19,24 +19,24 @@ class Tracer:
 		
 
 	def trace(self):
-		#api = "http://ip-api.com/json/"
-		conv = ul.urlopen(f"http://ip-api.com/json/{self.ip}")
-		read = conv.read()
-		load = json.loads(read)
+        conv = ul.urlopen(f"http://ip-api.com/json/{self.ip}")
+        read = conv.read()
+        load = json.loads(read)
 
-		print("")
-		print(f"IP: {load['query']}")
-		print(f"Country: {load['country']}")
-		print(f"country code: {load['countryCode']}")
-		print(f"region: {load['region']}")
-		print(f"Region Name: {load['regionName']}")
-		print(f"City: {load['city']}")
-		print(f"currency: {load['currency']}")
-		print(f"zip code: {load['zip']}")
-		print(f"ISP: {load['isp']}")
-		print(f"proxy: {load['proxy']}")
-		print(f"mobile: {load['mobile']}")
-		print(f"org: {load['org']}")
+        print("")
+        print(f"IP: {load['query']}")
+        print(f"Country: {load['country']}")
+        print(f"country code: {load['countryCode']}")
+        print(f"region: {load['region']}")
+        print(f"Region Name: {load['regionName']}")
+        print(f"City: {load['city']}")
+        print(f"zip code: {load['zip']}")
+        print(f"time zone: {load['timezone']}")
+        print(f"ISP: {load['isp']}")
+        print(f"org: {load['org']}")
+        print(f"as: {load['as']}")
+        print(f"latitude: {load['lat']}")
+        print(f"longitude: {load['lon']}")
 
 
 	def banner(self):
@@ -56,7 +56,7 @@ result:""")
 
 	def check(self):
 		if self.ip is None:
-			self.ip = input("ip to trace: ")
+			self.ip = input("\nip to trace: ")
 			ip_trace.banner()
 			ip_trace.trace()
 		else:
