@@ -4,7 +4,7 @@ try:
  import urllib.request as ul
  import ip_address as puip
  import json
-except:
+except ImportError:
  #print('Grant Us Root To Auto Install Required Modules!.')
  os.system('pip3 install urllib.request, json, ip_address')
  import urllib.request as ul
