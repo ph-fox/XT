@@ -33,8 +33,12 @@ class Tracer:
 		print(f"region: {load['region']}")
 		print(f"Region Name: {load['regionName']}")
 		print(f"City: {load['city']}")
+		print(f"currency: {load['currency']}")
 		print(f"zip code: {load['zip']}")
 		print(f"ISP: {load['isp']}")
+		print(f"proxy: {load['proxy']}")
+		print(f"mobile: {load['mobile']}")
+		print(f"org: {load['org']}")
 
 
 	def banner(self):
