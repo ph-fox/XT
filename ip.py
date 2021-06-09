@@ -2,6 +2,7 @@
 import optparse, os
 try:
  import urllib.request as ul
+ import ip_address
  import ip_address as puip
  import json
 except ImportError:
