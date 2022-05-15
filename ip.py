@@ -22,21 +22,21 @@ class Tracer:
   conv = ul.urlopen(f"http://ip-api.com/json/{self.ip}")
   read = conv.read()
   load = json.loads(read)
-  print("")
-  print(f"IP: {load['query']}")
-  print(f"Country: {load['country']}")
-  print(f"country code: {load['countryCode']}")
-  print(f"region: {load['region']}")
-  print(f"Region Name: {load['regionName']}")
-  print(f"City: {load['city']}")
-  print(f"zip code: {load['zip']}")
-  print(f"time zone: {load['timezone']}")
-  print(f"ISP: {load['isp']}")
-  print(f"org: {load['org']}")
-  print(f"as: {load['as']}")
-  print(f"latitude: {load['lat']}")
-  print(f"longitude: {load['lon']}")
-
+  res = f"""
+  IP: {load['query']}
+  Country: {load['country']}
+  country code: {load['countryCode']}
+  region: {load['region']}
+  Region Name: {load['regionName']}
+  City: {load['city']}
+  zip code: {load['zip']}
+  time zone: {load['timezone']}
+  ISP: {load['isp']}
+  org: {load['org']}
+  as: {load['as']}
+  latitude: {load['lat']}
+  longitude: {load['lon']}"""
+  return res
 
  def banner(self):
   print(f"""
@@ -57,10 +57,10 @@ result:""")
   if self.ip is None:
    self.ip = input("\nip to trace: ")
    ip_trace.banner()
-   ip_trace.trace()
+   print(ip_trace.trace())
   else:
    ip_trace.banner()
-   ip_trace.trace()
+   print(ip_trace.trace())
 
 
 if __name__=='__main__':
